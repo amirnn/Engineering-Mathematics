@@ -1,6 +1,9 @@
 #include <iostream>
 #include <Eigen/Dense>
 #include "matplotlibcpp.h"
+#include <boost/numeric/odeint.hpp>
+
+using namespace boost::numeric::odeint;
 
 namespace plt = matplotlibcpp;
 
