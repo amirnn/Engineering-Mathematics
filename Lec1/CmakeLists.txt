@@ -12,4 +12,4 @@ project(Lec1)
 
 # set the target
 add_executable(lec1 main.cpp)
-target_link_libraries(lec1 ${Eigen3_LIBS})
+# target_link_libraries(lec1 ${Eigen3_LIBS})
