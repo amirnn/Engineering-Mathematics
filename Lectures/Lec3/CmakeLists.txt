@@ -8,7 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # Find Eigen
 include_directories(/usr/local/include/eigen3)
-include_directories(../matplotlib-cpp)
+include_directories(../../matplotlib-cpp)
 find_package(Python3 COMPONENTS Development NumPy)
 
 
