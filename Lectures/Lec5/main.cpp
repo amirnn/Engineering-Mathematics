@@ -5,23 +5,29 @@
 
 using namespace boost::numeric::odeint;
 
+// Define a abbreviation for state type
+typedef std::vector< double > state_type;
+
 namespace plt = matplotlibcpp;
+
+const double sigma = 10.0;
+const double R = 28.0;
+const double b = 8.0 / 3.0;
+
+// the system function can be a classical functions
+void lorenz( state_type &x , state_type &dxdt , double t )
+{                                                         
+    dxdt[0] = sigma * ( x[1] - x[0] );
+    dxdt[1] = R * x[0] - x[1] - x[0] * x[2];
+    dxdt[2] = x[0]*x[1] - b * x[2];
+}
 
 int main(int argc, char const *argv[])
 {
-    std::vector<std::vector<double>> x, y, z;
-    for (double i = -5; i <= 5;  i += 0.25) {
-        std::vector<double> x_row, y_row, z_row;
-        for (double j = -5; j <= 5; j += 0.25) {
-            x_row.push_back(i);
-            y_row.push_back(j);
-            z_row.push_back(::std::sin(::std::hypot(i, j)));
-        }
-        x.push_back(x_row);
-        y.push_back(y_row);
-        z.push_back(z_row);
-    }
+    state_type x( 3 );
+    x[0] = x[1] = x[2] = 10.0;
+    const double dt = 0.01;
+    integrate_const( runge_kutta4< state_type >() , lorenz , x , 0.0 , 10.0 , dt );
     
-    plt::plot_surface(x, y, z);
-    plt::show();
+    return 0;
 }
