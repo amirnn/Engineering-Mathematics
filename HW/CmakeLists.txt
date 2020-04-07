@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.10)
 
 # set the project name
-project(EngMath)
+project(Homeworks)
 
 # add the executable
-add_subdirectory(Lectures)
-add_subdirectory(HW)
+add_subdirectory(hw1)
+add_subdirectory(hw2)

@@ -1,0 +1,22 @@
+cmake_minimum_required(VERSION 3.10)
+
+# specify the C++ standard
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+
+# Find Eigen
+include_directories(/usr/local/include/eigen3)
+# Find include folder for gnuplot
+include_directories(../../include/)
+
+# set the project name
+project(homework2)
+#Find Boost
+find_package(Boost)
+include_directories(${Boost_INCLUDE_DIRS})
+
+
+# set the target
+add_executable(hw2 main.cpp)
+target_link_libraries(hw2 ${Boost_LIBS})
+# target_link_libraries(lec1 ${Eigen3_LIBS})
