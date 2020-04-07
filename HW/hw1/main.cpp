@@ -18,23 +18,20 @@ int main()
 									 x, 0.0, 10.0, 0.1,
 									 push_back_state_and_time(x_vec, times));
 
-
 	std::vector<double> position;
-	for(size_t i=0; i<=steps;i++){
+	for (size_t i = 0; i <= steps; i++)
+	{
 		position.push_back(x_vec[i][0]);
 	}
 	/* output */
 	Gnuplot gp;
 	gp << "plot '-' using 1:2 with linespoint" << std::endl;
-	gp.send1d(std::make_tuple(times,position));
+	gp.send1d(std::make_tuple(times, position));
 
-
-
-
-	for (size_t i = 0; i <= steps; i++)
-	{
-		std::cout << times[i] << '\t' << x_vec[i][0] << '\t' << x_vec[i][1] << '\n';
-	}
+	// for (size_t i = 0; i <= steps; i++)
+	// {
+	// 	std::cout << times[i] << '\t' << x_vec[i][0] << '\t' << x_vec[i][1] << '\n';
+	// }
 
 	return 0;
 }
