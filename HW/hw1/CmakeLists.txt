@@ -13,11 +13,12 @@ include_directories(../../include/)
 project(homework1)
 
 #Find Boost
-find_package(Boost)
-include_directories(${Boost_INCLUDE_DIRS})
-
+# set(Boost_INCLUDE_DIR /usr/local/Cellar/boost/1.72.0_1/include)
+# set(Boost_LIBRARY_DIR /usr/local/Cellar/boost/1.72.0_1/lib)
+# link_directories(${Boost_LIBRARY_DIR})
+find_package(Boost COMPONENTS iostreams system filesystem REQUIRED)
+include_directories(${Boost_INCLUDE_DIR})
 
 # set the target
 add_executable(hw1 main.cpp)
-target_link_libraries(hw1 ${Boost_LIBS})
-# target_link_libraries(lec1 ${Eigen3_LIBS})
+target_link_libraries(hw1 ${Boost_LIBRARIES})
