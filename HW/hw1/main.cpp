@@ -4,7 +4,7 @@
 #include <cmath>
 #include <boost/numeric/odeint.hpp>
 #include "gnuplot-iostream.h"
-#include "system.h"
+#include "system_function.h"
 namespace odeint = boost::numeric::odeint;
 int main()
 {
