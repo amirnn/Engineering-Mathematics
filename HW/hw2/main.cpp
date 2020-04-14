@@ -34,18 +34,17 @@ int main(int argc, char const *argv[])
               << D << std::endl;
 
     // Odient Code ...
-    std::vector<state_type> x_vec;
+    std::vector<system_function::state_type> x_vec;
     std::vector<double> times;
     std::vector<double> position;
     {
-        state_type x(3); // a vector with size 3. [x; x_dot; x_dot_dot]
-        x = {1, 1, 1};    // start at x=1, 1, 1;
+        system_function::state_type x(3); // a vector with size 3. [x; x_dot; x_dot_dot]
+        x = {1, 1, 1};                    // start at x=1, 1, 1;
 
-        size_t steps = odeint::integrate(harmonic_oscillator,
+        size_t steps = odeint::integrate(system_function::harmonic_oscillator,
                                          x, 0.0, 10.0, 0.1,
-                                         push_back_state_and_time(x_vec, times));
+                                         system_function::push_back_state_and_time(x_vec, times));
 
-        
         for (size_t i = 0; i < steps; i++)
         {
             position.push_back(x_vec[i][0]);
@@ -54,11 +53,10 @@ int main(int argc, char const *argv[])
 
     // GNU Plot
     {
-        	/* output */
-	Gnuplot gp;
-	gp << "plot '-' using 1:2 with linespoint" << std::endl;
-	gp.send1d(std::make_tuple(times, position));
-
+        /* output */
+        Gnuplot gp;
+        gp << "plot '-' using 1:2 with linespoint" << std::endl;
+        gp.send1d(std::make_tuple(times, position));
     }
 
     return 0;
