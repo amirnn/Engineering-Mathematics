@@ -6,6 +6,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # Find Eigen
 include_directories(/usr/local/include/eigen3)
+
+#  Find Armadillo
+# include_directories(/usr/local/include/armadillo)
+find_package(Armadillo REQUIRED)
+
 # Find include folder for gnuplot
 include_directories(../../include/)
 
@@ -19,6 +24,9 @@ project(homework2)
 find_package(Boost COMPONENTS iostreams system filesystem REQUIRED)
 include_directories(${Boost_INCLUDE_DIR})
 
-# set the target
-add_executable(hw2 main.cpp)
-target_link_libraries(hw2 ${Boost_LIBRARIES})
+# set the target s
+add_executable(exercise2_2_a exercise2_2_a.cpp)
+target_link_libraries(exercise2_2_a ${Boost_LIBRARIES} ${Armadillo_LIBRARIES})
+
+add_executable(exercise2_2_b exercise2_2_b.cpp)
+target_link_libraries(exercise2_2_b ${Boost_LIBRARIES} ${Armadillo_LIBRARIES})

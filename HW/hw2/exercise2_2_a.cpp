@@ -2,7 +2,7 @@
 #include <Eigen/Dense>
 #include "gnuplot-iostream.h"
 #include <boost/numeric/odeint.hpp>
-#include "system_function.h"
+#include "sysfunc_exercise2_2_a.h"
 
 using Eigen::Matrix3cd;
 using Eigen::Matrix3d;
@@ -43,7 +43,7 @@ int main(int argc, char const *argv[])
         x = {1, -1, 1};
         size_t steps = odeint::integrate(system_function::harmonic_oscillator,
                                          x, 0.0, 10.0, 0.1,
-                                         system_function::push_back_state_and_time(x_vec, times));
+                                         system_function::push_back_state_and_time(x_vec, times)); //time should be there?
 
         for (size_t i = 0; i <= steps; i++)
         {
