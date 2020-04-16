@@ -19,6 +19,7 @@ project(homework1)
 find_package(Boost COMPONENTS iostreams system filesystem REQUIRED)
 include_directories(${Boost_INCLUDE_DIR})
 
+include_directories(./include)
 # set the target
-add_executable(hw1 main.cpp)
+add_executable(hw1 src/main.cpp)
 target_link_libraries(hw1 ${Boost_LIBRARIES})

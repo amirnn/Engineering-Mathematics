@@ -26,13 +26,13 @@ project(homework2)
 find_package(Boost COMPONENTS iostreams system filesystem REQUIRED)
 include_directories(${Boost_INCLUDE_DIR})
 
-
+include_directories(./include)
 # set the target s
-add_executable(exercise2_2_a exercise2_2_a.cpp)
+add_executable(exercise2_2_a src/exercise2_2_a.cpp)
 target_link_libraries(exercise2_2_a ${Boost_LIBRARIES} ${Armadillo_LIBRARIES})
 
-add_executable(exercise2_2_b exercise2_2_b.cpp)
+add_executable(exercise2_2_b src/exercise2_2_b.cpp)
 target_link_libraries(exercise2_2_b ${Boost_LIBRARIES} ${Armadillo_LIBRARIES})
 
-add_executable(exercise2_3 exercise2_3.cpp)
+add_executable(exercise2_3 src/exercise2_3.cpp)
 target_link_libraries(exercise2_3 lapack blas)

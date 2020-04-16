@@ -3,7 +3,7 @@
 #include "gnuplot-iostream.h"
 
 typedef arma::mat::fixed<4, 4> SystemMatrix;
-int main(int argc, char const *argv[])
+int main(int argc, char const ** arg)
 {
     try
     {
@@ -15,15 +15,17 @@ int main(int argc, char const *argv[])
             {0, 0, 0, 1},
             {0, 0, 0, 0}};
         auto ebsVec = arma::linspace(0, .05, 100);
+        std::cout.precision(5);
+        std::cout << std::fixed;
         for (const auto &ebs : ebsVec)
         {
             sysMatrix(3, 0) = -system_function::alpha_thetha_func(ebs);
             sysMatrix(3, 2) = -system_function::alpha_thetha_dd_func(ebs);
             arma::eig_gen(eigval, eigvec, sysMatrix, "balance");
             std::cout << "Here are the eigvalues for the ebs: " << ebs << std::endl
-                      << std::setprecision(2) << eigval << std::endl;
+                      << eigval << std::endl;
             std::cout << "Here are the eigvectors: " << std::endl
-                      << std::setprecision(2) << eigvec << std::endl;
+                      << eigvec << std::endl;
         }
     }
     catch (const std::exception &e)
