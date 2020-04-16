@@ -12,8 +12,8 @@ int main(int argc, char const *argv[])
     std::vector<double> position;
     {
         system_function::state_type x; // a vector with size 3. [x; x_dot; x_dot_dot]
-        //x = {1,1,1, 1};                    // start at x=1, 1, 1;
-        x = {1, 1, 1, 1};
+        //x = {1,1,1, 1};                    // start at x=1, 1, 1, 1;
+        x = {1, -1, 1, -1};
         size_t steps = odeint::integrate(system_function::harmonic_oscillator,
                                          x, 0.0, 10.0, 0.1,
                                          system_function::push_back_state_and_time);

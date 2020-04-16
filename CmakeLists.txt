@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.10)
 project(EngMath)
 
 # Set build type
-set(CMAKE_BUILD_TYPE RelWithDebInfo)
+# set(CMAKE_BUILD_TYPE RelWithDebInfo)
 # Make boost libs static. This makes everything much faster.
 set(Boost_USE_STATIC_LIBS ON)
 
