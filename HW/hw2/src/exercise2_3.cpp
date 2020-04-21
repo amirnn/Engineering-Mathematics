@@ -3,7 +3,7 @@
 #include "gnuplot-iostream.h"
 
 typedef arma::mat::fixed<4, 4> SystemMatrix;
-int main(int argc, char const ** arg)
+int main(int argc, char const *argv[])
 {
     try
     {

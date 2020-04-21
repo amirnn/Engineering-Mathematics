@@ -1,5 +1,5 @@
 #include <iostream>
-#include <Eigen/Dense>
+#include <eigen3/Eigen/Dense>
 #include "gnuplot-iostream.h"
 #include <boost/numeric/odeint.hpp>
 #include "sysfunc_exercise2_2_a.h"

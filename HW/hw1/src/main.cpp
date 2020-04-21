@@ -1,5 +1,5 @@
 #include <iostream>
-#include <Eigen/Dense>
+#include <eigen3/Eigen/Dense>
 #include <vector>
 #include <cmath>
 #include <boost/numeric/odeint.hpp>
